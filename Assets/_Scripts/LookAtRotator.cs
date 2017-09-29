@@ -8,5 +8,9 @@ public class LookAtRotator : MonoBehaviour {
 	
 	void Update () {
         this.transform.LookAt(LookAtObject.transform);
+
+        Debug.Log(transform.forward);
 	}
+
+    
 }
