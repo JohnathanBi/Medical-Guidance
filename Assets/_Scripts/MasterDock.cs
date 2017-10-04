@@ -31,8 +31,7 @@ public class MasterDock : MonoBehaviour {
 
         if (successfullDocks==DockManagerList.Length)
         {
-            myMaterial.color = Color.green;
-            DockingStatusText.text = DockName + ": Dock Successfull!";
+            OnAllDocksSucccessfull();
         }
         else
         {
@@ -40,4 +39,19 @@ public class MasterDock : MonoBehaviour {
             DockingStatusText.text = DockName + ": Not Docked";
         }
     }
+
+
+    void OnAllDocksSucccessfull() {
+        myMaterial.color = Color.green;
+        DockingStatusText.text = DockName + ": Dock Successfull!";
+
+        DockTimer myDockTimer = GetComponent<DockTimer>();
+
+        if (myDockTimer.isTiming()) {
+           float timeToDock =  myDockTimer.FinishDockTiming();
+            Debug.Log("Dock Successfull: " + timeToDock);
+        }
+    }
+
+        
 }

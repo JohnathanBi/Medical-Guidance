@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandomRotationSetter : MonoBehaviour {
 
     public GameObject TargetWand;
-
+    public DockTimer MyDockTimer;
 
     private SteamVR_TrackedObject trackedObj;
 
@@ -21,7 +21,8 @@ public class RandomRotationSetter : MonoBehaviour {
 
     public void Update(){
         if (Controller.GetHairTriggerDown()) {
-            TargetWand.GetComponent<RandomRotator>().RandomRotate();
+           TargetWand.GetComponent<RandomRotator>().RandomRotate();
+           MyDockTimer.BeginDockTiming();
         }
 
     }
